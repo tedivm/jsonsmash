@@ -7,6 +7,18 @@ const Session = require('./src/services/session.js')
 const Shell = require('./src/services/shell.js')
 const prompt = require('cli-input')
 const setTitle = require('node-bash-title')
+const minimist = require('minimist')
+
+
+const argv = minimist(process.argv, {
+  'boolean': true,
+});
+
+if(argv['v'] || argv._[2] == 'version') {
+  var pjson = require('./package.json');
+  console.log('jsonsmash v' + pjson.version);
+  return process.exit(0)
+}
 
 if(!process.argv[2]) {
   throw Error('Missing path to json')
