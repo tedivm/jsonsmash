@@ -28,7 +28,7 @@ const current_session = new Session()
 const current_shell = new Shell(current_session)
 const path_to_json = process.argv[2]
 
-setTitle('JSON SMASH + ' + path_to_json)
+setTitle('jsonsmash + ' + path_to_json)
 current_session.initialize(path_to_json)
 
 
