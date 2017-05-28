@@ -34,8 +34,8 @@ class Session {
         if (err) {
           throw err;
         }
-        that.json = json
-        that.data = JSON.parse(json)
+        that.json = json.toString()
+        that.data = JSON.parse(that.json)
       });
     }
   }
