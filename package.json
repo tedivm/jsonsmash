@@ -1,0 +1,36 @@
+{
+  "name": "jsonsmash",
+  "version": "0.1.0",
+  "description": "JSON CLI Shell",
+  "main": "jsonsmash.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "jsonsmash": "./jsonsmash.js"
+  },
+  "preferGlobal": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tedivm/jsonsmash.git"
+  },
+  "keywords": [
+    "json",
+    "shell"
+  ],
+  "author": "Robert Hafner",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tedivm/jsonsmash/issues"
+  },
+  "homepage": "https://github.com/tedivm/jsonsmash#readme",
+  "dependencies": {
+    "cli-input": "^0.2.0",
+    "js-yaml": "^3.8.4",
+    "lodash": "^4.17.4",
+    "minimist": "^1.2.0",
+    "node-bash-title": "0.0.2",
+    "pad": "^1.1.0",
+    "request": "^2.81.0"
+  }
+}
