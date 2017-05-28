@@ -17,11 +17,24 @@ class Shell {
     });
     const command = argv._[0]
     const script = this.getScript(command)
+
+    if(!script) {
+      this.stdout('-jsonsmash: ' + command + ': command not found')
+      return false
+    }
+
     new script(this, split_args).run()
   }
 
   getScript(name, argv) {
-    return require('../bin/' + name + '.js')
+    try{
+      return require('../bin/' + name + '.js')
+    } catch(err) {
+      if(err.message.startsWith('Cannot find module')) {
+        return false
+      }
+      throw err
+    }
   }
 
   stdout(text) {

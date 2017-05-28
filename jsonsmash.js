@@ -21,7 +21,8 @@ if(argv['v'] || argv._[2] == 'version') {
 }
 
 if(!process.argv[2]) {
-  throw Error('Missing path to json')
+  console.log('Missing path to json')
+  return process.exit(-1)
 }
 
 const current_session = new Session()
@@ -30,7 +31,6 @@ const path_to_json = process.argv[2]
 
 setTitle('jsonsmash + ' + path_to_json)
 current_session.initialize(path_to_json)
-
 
 const shutdown = function () {
   setTitle('')
@@ -54,7 +54,14 @@ ps.on('value', function (value, options, ps) {
   if(text === 'q' || text === 'exit') {
     return shutdown()
   }
-  current_shell.runCommand(text)
+  try {
+    current_shell.runCommand(text)
+  } catch (err) {
+    console.log(err.message)
+    if(process.env.JSONSMASH_DEBUG) {
+      console.log(err.stack)
+    }
+  }
 })
 ps.run()
 
