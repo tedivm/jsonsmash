@@ -15,7 +15,12 @@ class LS extends AbstractScript {
     for(var key of keys) {
       let newpath = _.clone(path)
       newpath.push(key)
-      let size = JSON.stringify(this.shell.getDataFromPath(newpath)).length
+      let json = JSON.stringify(this.shell.getDataFromPath(newpath))
+      let size = 0
+      if(typeof json !== 'undefined') {
+        size = JSON.stringify(this.shell.getDataFromPath(newpath)).length
+      }
+
       // Add key, colon delimiter, and if not a number quotations for key.
       size += key.length + (typeof key === 'number' ? 1 : 3)
       metadata[key] = {
