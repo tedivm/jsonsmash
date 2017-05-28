@@ -35,6 +35,10 @@ class Shell {
       path = _.clone(this.session.cwd)
     }
 
+    if(typeof pathstring !== 'string') {
+      pathstring = pathstring.toString()
+    }
+
     let pathpieces = pathstring.split('/')
     for(var piece of pathpieces) {
       if(piece.length <= 0) {
