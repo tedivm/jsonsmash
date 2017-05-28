@@ -1,7 +1,7 @@
 {
   "name": "jsonsmash",
-  "version": "0.2.0",
-  "description": "JSON CLI Shell",
+  "version": "0.3.0",
+  "description": "JSON Shell",
   "main": "jsonsmash.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
